@@ -6,6 +6,9 @@ export default class Template extends Component {
   config = {
     navigationBarTitleText: '首页'
   }
+  constructor() {
+    super(...arguments)
+  }
   componentWillMount () { }
   componentDidMount () { }
   componentWillUnmount () { }

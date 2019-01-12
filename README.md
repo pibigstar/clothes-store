@@ -22,6 +22,26 @@ npm run dev:weapp
 
 ```
 
+## taro-ui安装
+- 安装
+```bash
+npm install taro-ui
+
+```
+- 使用
+
+[https://taro-ui.aotu.io/#/docs/quickstart](https://taro-ui.aotu.io/#/docs/quickstart)
+
+
+## Module not found
+
+Module not found: Error: Can't resolve 'XXX' in 'FFF'
+
+```bash
+npm i XXX --save
+```
+
+
 ## 常用CSS总结
 写这个项目，主要是一边学习Taro框架，一遍学习一些常用的CSS
 
