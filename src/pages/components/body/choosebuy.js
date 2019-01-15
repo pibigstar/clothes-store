@@ -1,7 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import { AtTabs, AtTabsPane } from 'taro-ui'
-import './choose-buy.less'
+import './choosebuy.less'
 
 export default class ChooseBuy extends Component {
 
@@ -14,7 +13,7 @@ export default class ChooseBuy extends Component {
                   {id:3,title:'羽绒服'},
                   {id:4,title:'大衣'},
                   {id:5,title:'内衣'}],
-      currentTab: 0,
+      selectType: {}, // 当前选中的分类
     }
   }
   componentWillMount () { }
@@ -27,25 +26,31 @@ export default class ChooseBuy extends Component {
     console.log(index);
   }
 
+  onTypeClick(item){
+    this.setState({
+      selectType: item,
+    })
+    // 告诉父级组件，我改了type值
+    this.props.onChangeType(item);
+  }
+
   render () {
-    let { typeList,currentTab } = this.state;
+    let { typeList,selectType } = this.state;
     return (
-      <View className='choose_buy1'>
-        <View className='type_list1'>
-          <AtTabs
-            current={currentTab}
-            tabList={typeList}
-            onClick={this.handleClick.bind(this)}
-            tabDirection='vertical'
-          >
-            {
-              typeList.map((item,index)=> {
-              <AtTabsPane index={index} current={currentTab}>
-                <Text>{item.title}</Text>
-              </AtTabsPane>
-              })
-            }
-          </AtTabs>
+      <View className='choose-buy'>
+        <View className='type-list'>
+          {
+            typeList.map((item)=> {
+              return (
+                <Text
+                  onClick={this.onTypeClick.bind(this,item)}
+                  className={'taro-text ' + selectType&&selectType.id==item.id?'select':''}
+                  key={item.id}
+                >
+                {item.title}
+                </Text>)
+            })
+          }
         </View>
       </View>
     )

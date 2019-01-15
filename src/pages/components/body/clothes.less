@@ -1,0 +1,39 @@
+.clothes {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  overflow-y: auto;
+  .clothes-type {
+    font-size: 16PX;
+    font-weight:bold;
+    margin-top: 5PX;
+  }
+  .clothes-item {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20PX;
+    flex-grow: 1;
+    .clothes-img {
+      width: 60PX;
+      height: 60PX;
+      border-radius: 4PX;
+    }
+    .clothes-info {
+      height: 60PX;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 5PX;
+      .info-text {
+        font-size: 10PX;
+      }
+      .info-monery {
+        font-size: 14PX;
+        font-weight:bold;
+        color: red;
+      }
+    }
+  }
+}
